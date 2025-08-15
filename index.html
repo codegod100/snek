@@ -6,6 +6,16 @@
       <link rel="stylesheet" href="https://pyscript.net/releases/2025.8.1/core.css">
       <script src="https://cdn.tailwindcss.com"></script>
       <script type="module" src="https://pyscript.net/releases/2025.8.1/core.js"></script>
+      <script>
+        // Register service worker for caching
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+              .then(registration => console.log('SW registered'))
+              .catch(registrationError => console.log('SW registration failed'));
+          });
+        }
+      </script>
   </head>
   <body class="bg-[#1e1e2e] text-[#cdd6f4] min-h-screen flex items-center justify-center font-mono">
 

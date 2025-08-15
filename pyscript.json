@@ -3,5 +3,8 @@
     "files": {
         "/templates/counter.tpl": "./templates/counter.tpl",
         "/templates/button.tpl": "./templates/button.tpl"
+    },
+    "experimental": {
+        "sync_main_only": true
     }
 }
