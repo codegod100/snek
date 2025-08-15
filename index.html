@@ -9,7 +9,11 @@
   </head>
   <body class="bg-[#1e1e2e] text-[#cdd6f4] min-h-screen flex items-center justify-center font-mono">
 
-    <div id="app" class="text-center p-8 bg-[#313244] rounded-lg shadow-lg border border-[#45475a]">
+    <div id="loading" class="text-center p-8">
+      <div class="text-2xl text-[#89b4fa] animate-pulse">Initializing the supercomputer...</div>
+    </div>
+
+    <div id="app" class="hidden text-center p-8 bg-[#313244] rounded-lg shadow-lg border border-[#45475a]">
       <h1 class="text-4xl font-bold mb-8 text-[#f38ba8]">Counter App</h1>
       <div id="counter" class="text-6xl font-bold mb-8 text-[#89b4fa] bg-[#11111b] px-6 py-4 rounded-lg border border-[#45475a]">0</div>
       <button id="increment-btn" class="bg-[#a6e3a1] text-[#11111b] px-8 py-3 rounded-lg font-semibold hover:bg-[#94e2d5] transition-colors duration-200 active:scale-95 transform">Increment</button>

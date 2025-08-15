@@ -58,23 +58,8 @@ template_engine = CustomTemplateEngine()
 
 def load_templates():
     """Load templates from PyScript filesystem"""
-    success = True
-    success &= template_engine.load_from_file('counter', '/templates/counter.tpl')
-    success &= template_engine.load_from_file('button', '/templates/button.tpl')
-    
-    if not success:
-        # Fallback templates if file loading fails
-        template_engine.load_template('counter', '''
-<div class="text-6xl font-bold mb-8 text-[#89b4fa] bg-[#11111b] px-6 py-4 rounded-lg border border-[#45475a]">
-  {{ count }}
-</div>
-        '''.strip())
-        
-        template_engine.load_template('button', '''
-<button id="{{ button_id }}" class="bg-[#a6e3a1] text-[#11111b] px-8 py-3 rounded-lg font-semibold hover:bg-[#94e2d5] transition-colors duration-200 active:scale-95 transform">
-  {{ button_text }}
-</button>
-        '''.strip())
+    template_engine.load_from_file('counter', '/templates/counter.tpl')
+    template_engine.load_from_file('button', '/templates/button.tpl')
 
 def render_counter():
     return template_engine.render('counter', count=counter)
@@ -91,6 +76,12 @@ def increment_counter(event):
 
 def init_app():
     load_templates()
+    
+    # Hide loading and show app
+    document.getElementById("loading").style.display = "none"
+    document.getElementById("app").classList.remove("hidden")
+    
+    # Initialize app content
     document.getElementById("counter").innerHTML = render_counter()
     document.getElementById("increment-btn").outerHTML = render_button()
     document.getElementById("increment-btn").onclick = increment_counter
